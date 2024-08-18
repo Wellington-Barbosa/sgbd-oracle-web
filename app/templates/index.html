@@ -11,7 +11,20 @@
     <link rel="stylesheet" href="../static/style.css">
 </head>
 <body>
-    <form class="form">
+    <!-- Mensagens Flash -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <div class="alert alert-dismissible fade show">
+          {% for category, message in messages %}
+            <div class="alert alert-{{ category }}">
+              {{ message }}
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+    <!-- Formulário de Login -->
+    <form class="form" method="POST" action="/">
         <img src="../static/login.jpg" alt="" />
         <h1>Login Oracle</h1>
         <select id="database" name="database" required>

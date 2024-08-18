@@ -1,0 +1,313 @@
+####################################################################################
+############################ BANCOS DE PRODUÇÃO ####################################
+####################################################################################
+
+##########################
+## SISTEMA INFOMED #######
+##########################
+ORA_NOVA =                       	
+( DESCRIPTION = 
+    ( ADDRESS = (PROTOCOL = TCP) (HOST = rvd-hsp-inf-s01-vip) (PORT = 1521) )
+    ( ADDRESS = (PROTOCOL = TCP) (HOST = rvd-hsp-inf-s02-vip) (PORT = 1521) )                    	
+    ( LOAD_BALANCE = yes )
+    ( FAIL_OVER = yes )
+    ( CONNECT_DATA =
+      ( SERVER = DEDICATED )
+      ( SERVICE_NAME = INFOMED )
+      ( FAILOVER_MODE =
+        ( TYPE = SELECT )
+        ( METHOD = BASIC )
+        ( RETRIES = 10 )
+        ( DELAY = 5 )
+      )
+    )
+)
+
+##########################
+## SISTEMA INFOMED RES #######
+##########################
+INFOMED_TESTE_RES =                       	
+( DESCRIPTION =                     	
+  ( ADDRESS_LIST =                  	
+    ( ADDRESS =                   	
+      ( PROTOCOL = TCP )           	  
+      ( HOST = 192.168.14.4 )                	
+      ( PORT = 1521 )              	  
+    )                            	  
+  )                                	 
+  ( CONNECT_DATA = (SERVICE_NAME = unirvres) )                                	 
+)
+
+ORA_INFOMED =                       	
+( DESCRIPTION = 
+    ( ADDRESS = (PROTOCOL = TCP) (HOST = 192.168.14.5) (PORT = 1521) )
+    ( ADDRESS = (PROTOCOL = TCP) (HOST = 192.168.14.6) (PORT = 1521) )                    	
+    ( LOAD_BALANCE = yes )
+    ( FAIL_OVER = yes )
+    ( CONNECT_DATA =
+      ( SERVER = DEDICATED )
+      ( SERVICE_NAME = INFOMED )
+      ( FAILOVER_MODE =
+        ( TYPE = SELECT )
+        ( METHOD = BASIC )
+        ( RETRIES = 10 )
+        ( DELAY = 5 )
+      )
+    )
+)
+
+ORA_EMAIL =                       	
+( DESCRIPTION = 
+    ( ADDRESS = (PROTOCOL = TCP) (HOST = rvd-hsp-inf-s01-vip) (PORT = 1521) )
+    ( ADDRESS = (PROTOCOL = TCP) (HOST = rvd-hsp-inf-s02-vip) (PORT = 1521) )                    	
+    ( LOAD_BALANCE = yes )
+    ( FAIL_OVER = yes )
+    ( CONNECT_DATA =
+      ( SERVER = DEDICATED )
+      ( SERVICE_NAME = INFOMED )
+      ( FAILOVER_MODE =
+        ( TYPE = SELECT )
+        ( METHOD = BASIC )
+        ( RETRIES = 10 )
+        ( DELAY = 5 )
+      )
+    )
+)
+
+ORA_TISS =                       	
+( DESCRIPTION = 
+    ( ADDRESS = (PROTOCOL = TCP) (HOST = rvd-hsp-inf-s01-vip) (PORT = 1521) )
+    ( ADDRESS = (PROTOCOL = TCP) (HOST = rvd-hsp-inf-s02-vip) (PORT = 1521) )                    	
+    ( LOAD_BALANCE = yes )
+    ( FAIL_OVER = yes )
+    ( CONNECT_DATA =
+      ( SERVER = DEDICATED )
+      ( SERVICE_NAME = INFOMED )
+      ( FAILOVER_MODE =
+        ( TYPE = SELECT )
+        ( METHOD = BASIC )
+        ( RETRIES = 10 )
+        ( DELAY = 5 )
+      )
+    )
+)
+
+ORA_REMOTE =                       	
+( DESCRIPTION = 
+    ( ADDRESS = (PROTOCOL = TCP) (HOST = rvd-hsp-inf-s01-vip) (PORT = 1521) )
+    ( ADDRESS = (PROTOCOL = TCP) (HOST = rvd-hsp-inf-s02-vip) (PORT = 1521) )                    	
+    ( LOAD_BALANCE = yes )
+    ( FAIL_OVER = yes )
+    ( CONNECT_DATA =
+      ( SERVER = DEDICATED )
+      ( SERVICE_NAME = INFOMED )
+      ( FAILOVER_MODE =
+        ( TYPE = SELECT )
+        ( METHOD = BASIC )
+        ( RETRIES = 10 )
+        ( DELAY = 5 )
+      )
+    )
+)
+
+ORA_PTU =                       	
+( DESCRIPTION = 
+    ( ADDRESS = (PROTOCOL = TCP) (HOST = rvd-hsp-inf-s01-vip) (PORT = 1521) )
+    ( ADDRESS = (PROTOCOL = TCP) (HOST = rvd-hsp-inf-s02-vip) (PORT = 1521) )                    	
+    ( LOAD_BALANCE = yes )
+    ( FAIL_OVER = yes )
+    ( CONNECT_DATA =
+      ( SERVER = DEDICATED )
+      ( SERVICE_NAME = INFOMED )
+      ( FAILOVER_MODE =
+        ( TYPE = SELECT )
+        ( METHOD = BASIC )
+        ( RETRIES = 10 )
+        ( DELAY = 5 )
+      )
+    )
+)
+
+ORA_SMS =                       	
+( DESCRIPTION = 
+    ( ADDRESS = (PROTOCOL = TCP) (HOST = rvd-hsp-inf-s01-vip) (PORT = 1521) )
+    ( ADDRESS = (PROTOCOL = TCP) (HOST = rvd-hsp-inf-s02-vip) (PORT = 1521) )                    	
+    ( LOAD_BALANCE = yes )
+    ( FAIL_OVER = yes )
+    ( CONNECT_DATA =
+      ( SERVER = DEDICATED )
+      ( SERVICE_NAME = INFOMED )
+      ( FAILOVER_MODE =
+        ( TYPE = SELECT )
+        ( METHOD = BASIC )
+        ( RETRIES = 10 )
+        ( DELAY = 5 )
+      )
+    )
+)
+
+INFOMED =                       	
+( DESCRIPTION = 
+    ( ADDRESS = (PROTOCOL = TCP) (HOST = rvd-hsp-inf-s01-vip) (PORT = 1521) )
+    ( ADDRESS = (PROTOCOL = TCP) (HOST = rvd-hsp-inf-s02-vip) (PORT = 1521) )                    	
+    ( LOAD_BALANCE = yes )
+    ( FAIL_OVER = yes )
+    ( CONNECT_DATA =
+      ( SERVER = DEDICATED )
+      ( SERVICE_NAME = INFOMED )
+      ( FAILOVER_MODE =
+        ( TYPE = SELECT )
+        ( METHOD = BASIC )
+        ( RETRIES = 10 )
+        ( DELAY = 5 )
+      )
+    )
+)
+
+##########################
+## SISTEMA SENIOR ########
+##########################
+SENIOR =                       	
+( DESCRIPTION = 
+    ( ADDRESS = (PROTOCOL = TCP) (HOST = rvd-hsp-inf-s01-vip) (PORT = 1521) )
+    ( ADDRESS = (PROTOCOL = TCP) (HOST = rvd-hsp-inf-s02-vip) (PORT = 1521) )                    	
+    ( LOAD_BALANCE = yes )
+    ( FAIL_OVER = yes )
+    ( CONNECT_DATA =
+      ( SERVER = DEDICATED )
+      ( SERVICE_NAME = SENIOR )
+      ( FAILOVER_MODE =
+        ( TYPE = SELECT )
+        ( METHOD = BASIC )
+        ( RETRIES = 10 )
+        ( DELAY = 5 )
+      )
+    )
+)
+
+##########################
+## SISTEMA PIRAMIDE ######
+##########################
+PIRAMIDE =                       	
+( DESCRIPTION = 
+    ( ADDRESS = (PROTOCOL = TCP) (HOST = 192.168.14.5) (PORT = 1521) )
+    ( ADDRESS = (PROTOCOL = TCP) (HOST = 192.168.14.6) (PORT = 1521) )                    	
+    ( LOAD_BALANCE = yes )
+    ( FAIL_OVER = yes )
+    ( CONNECT_DATA =
+      ( SERVER = DEDICATED )
+      ( SERVICE_NAME = PIRAMIDE )
+      ( FAILOVER_MODE =
+        ( TYPE = SELECT )
+        ( METHOD = BASIC )
+        ( RETRIES = 10 )
+        ( DELAY = 5 )
+      )
+    )
+)
+
+###############################
+## BASE TASY NEW ######
+###############################	
+TASY_CLOUD =
+    ( DESCRIPTION =
+      ( ADDRESS = (PROTOCOL = TCP) (HOST = 172.25.1.4) (PORT = 1521) )
+      ( CONNECT_DATA =
+        ( SERVER = DEDICATED )
+        ( SERVICE_NAME = DBTASY )
+      )
+    )
+
+####################################################################################
+############################ BANCOS DE TESTE #######################################
+####################################################################################
+
+##########################
+## SISTEMA INFOMED #######
+##########################
+INFOMED_TEST =                       	
+( DESCRIPTION =                     	
+  ( ADDRESS_LIST =                  	
+    ( ADDRESS =                   	
+      ( PROTOCOL = TCP )           	  
+      ( HOST = 192.168.14.4 )                	
+      ( PORT = 1521 )              	  
+    )                            	  
+  )                                	 
+  ( CONNECT_DATA = (SERVICE_NAME = unirvtst) )                                	 
+)
+
+##########################
+## SISTEMA SENIOR ########
+##########################
+SENIOR_TEST =                       	
+( DESCRIPTION =                     	
+  ( ADDRESS_LIST =                  	
+    ( ADDRESS =                   	
+      ( PROTOCOL = TCP )           	  
+      ( HOST = 192.168.14.4 )                	
+      ( PORT = 1521 )              	  
+    )                            	  
+  )                                	 
+  ( CONNECT_DATA = (SERVICE_NAME = unirvtst) )                                	 
+)
+
+##########################
+## SISTEMA PIRAMIDE ######
+##########################
+PIRAMIDE_TEST =                       	
+( DESCRIPTION =                     	
+  ( ADDRESS_LIST =                  	
+    ( ADDRESS =                   	
+      ( PROTOCOL = TCP )           	  
+      ( HOST = 192.168.14.4 )                	
+      ( PORT = 1521 )              	  
+    )                            	  
+  )                                	 
+  ( CONNECT_DATA = (SERVICE_NAME = unirvtst) )                                	 
+)
+  
+##########################
+## SISTEMA TASY - BASE DE HOMOLOGACAO ######
+##########################
+TASY_HOM =                       	
+( DESCRIPTION =                     	
+  ( ADDRESS_LIST =                  	
+    ( ADDRESS =                   	
+      ( PROTOCOL = TCP )           	  
+      ( HOST = 172.25.1.50 )                	
+      ( PORT = 1521 )              	  
+    )                            	  
+  )                                	 
+  ( CONNECT_DATA = ( SERVER = DEDICATED ) ( SERVICE_NAME = HOM) )                                	 
+)
+
+##########################
+## SISTEMA TASY ######
+##########################
+TASY_TEST =                       	
+( DESCRIPTION =                     	
+  ( ADDRESS_LIST =                  	
+    ( ADDRESS =                   	
+      ( PROTOCOL = TCP )           	  
+      ( HOST = 192.168.14.5 )                	
+      ( PORT = 1521 )              	  
+    )                            	  
+  )                                	 
+  ( CONNECT_DATA = ( SERVER = DEDICATED ) ( SERVICE_NAME = dbteste) )                                	 
+)
+
+##########################
+## SISTEMA TASY - TESTE NEW ######
+##########################
+TASY_TEST_NEW =                       	
+( DESCRIPTION =                     	
+  ( ADDRESS_LIST =                  	
+    ( ADDRESS =                   	
+      ( PROTOCOL = TCP )           	  
+      ( HOST = 172.24.1.191 )                	
+      ( PORT = 1521 )              	  
+    )                            	  
+  )                                	 
+  ( CONNECT_DATA = ( SERVER = DEDICATED ) ( SERVICE_NAME = DBTST) ( INSTANCE_NAME = DBTST ) )                                	 
+)
