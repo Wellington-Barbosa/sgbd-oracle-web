@@ -1,10 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Login-Oracle</title>
+    <meta name="viewport" content="width-device-width, initial-scale=1" />
+    <link
+       rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+       rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="../static/style.css">
 </head>
 <body>
-
+    <form class="form">
+        <img src="../static/login.jpg" alt="" />
+        <h1>Login Oracle</h1>
+        <select id="database" name="database" required>
+            <option value="">Selecione um Banco de Dados</option>
+            {% for db in databases %}
+                <option value="{{ db }}">{{ db }}</option>
+            {% endfor %}
+        </select>
+        <input type="text" id="username" name="username" placeholder="User" required />
+        <div class="form-group">
+            <input id="password" name="password" type="password" placeholder="Password" required >
+            <button class="btn-show" type="button" onclick="switchPasswordType()">
+                <i id="passIcon" class="bi bi-eye"></i>
+            </button>
+        </div>
+        <button type="submit" class="btn-primary">Login</button>
+    </form>
+    <script src="../static/script.js"></script>
 </body>
 </html>
