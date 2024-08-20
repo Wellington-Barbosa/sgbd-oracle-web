@@ -1,5 +1,5 @@
 from flask import current_app as app
-from flask import render_template, request, redirect, url_for, flash
+from flask import session, render_template, request, redirect, url_for, flash
 from tnsnames_parser import extrair_dados_tnsnames
 import oracledb
 
@@ -8,10 +8,13 @@ oracledb.init_oracle_client(lib_dir=r"C:\instantclient_23_4")  # Altere para o c
 
 @app.route('/', methods=['GET', 'POST'])
 def login():
+    if request.method == 'GET':
+        session.pop('message', None)  # Certifique-se de limpar qualquer mensagem anterior ao acessar a tela de login
+
+    message = session.pop('message', None)  # Retira a mensagem da sessão se houver
     tnsnames_path = 'C:/Users/wellington.barbosa/Documents/GitHub/sgbd-oracle-web/app/files/TNSNAMES.ora'
     databases = extrair_dados_tnsnames(tnsnames_path)
 
-    # Converta a lista de dicionários em um dicionário onde a chave é o nome do banco de dados
     databases_dict = {db['NOME']: {'host': db['HOST'], 'port': db['PORT'], 'service_name': db['SERVICE_NAME']} for db in databases}
 
     if request.method == 'POST':
@@ -33,6 +36,7 @@ def login():
 
     return render_template('index.html', databases=databases_dict.keys())
 
+
 @app.route('/dashboard')
 def dashboard():
     return render_template('dashboard.html')
@@ -49,5 +53,8 @@ def execute_query():
 
 @app.route('/logout')
 def logout():
-    # Lógica para logout e redirecionamento para a tela de login
+    # Limpa a sessão do usuário
+    session.clear()
+    session['message'] = 'Logout realizado com sucesso!'
     return redirect(url_for('login'))
+

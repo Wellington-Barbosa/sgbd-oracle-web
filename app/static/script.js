@@ -11,3 +11,8 @@ function switchPasswordType() {
         passIcon.classList.add("bi-eye");
     }
 }
+
+function closeAlert() {
+    var alertBox = document.querySelector('.alert');
+    alertBox.style.display = 'none';
+}

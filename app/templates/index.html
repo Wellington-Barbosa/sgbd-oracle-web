@@ -11,18 +11,21 @@
     <link rel="stylesheet" href="../static/style.css">
 </head>
 <body>
-    <!-- Mensagens Flash -->
-    {% with messages = get_flashed_messages(with_categories=true) %}
-      {% if messages %}
-        <div class="alert alert-dismissible fade show">
-          {% for category, message in messages %}
-            <div class="alert alert-{{ category }}">
-              {{ message }}
-            </div>
-          {% endfor %}
-        </div>
-      {% endif %}
-    {% endwith %}
+<div class="form-container">
+    <!-- Mensagem de Erro -->
+    <div class="alert-container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">
+                        {{ message }}
+                        <button class="close-btn" onclick="closeAlert()">OK</button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+
     <!-- Formulário de Login -->
     <form class="form" method="POST" action="/">
         <img src="../static/login.jpg" alt="" />
@@ -43,5 +46,6 @@
         <button type="submit" class="btn-primary">Login</button>
     </form>
     <script src="../static/script.js"></script>
+</div>
 </body>
 </html>

@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, session
 
 def create_app():
     app = Flask(__name__)
