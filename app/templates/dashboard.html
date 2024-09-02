@@ -14,13 +14,18 @@
     <link rel="stylesheet" href="../static/dashboard-style.css">
 </head>
 <body>
-    <div class="notification">
-        <div class="notification__body">
-            <img src="../static/circle-check.svg" alt="Success" class="notification__icon">
-            Login realizado com sucesso! &#128640;
-        </div>
-        <div class="notification__progress"></div>
-    </div>
+    {% if messages %}
+        {% for category, message in messages %}
+            <div class="notification">
+                <div class="notification__body">
+                    <img src="../static/circle-check.svg" alt="Success" class="notification__icon">
+                    {{ message }} &#128640;
+                </div>
+                <div class="notification__progress"></div>
+            </div>
+        {% endfor %}
+    {% endif %}
+
     <div class="cards">
         <div class="card tilted">
             <span class="title">Bem vindo ao SGBD WEB</span>

@@ -1,5 +1,5 @@
 from flask import current_app as app
-from flask import session, render_template, request, redirect, url_for, flash
+from flask import session, render_template, request, redirect, url_for, flash, get_flashed_messages
 from tnsnames_parser import extrair_dados_tnsnames
 import oracledb
 
@@ -39,7 +39,8 @@ def login():
 
 @app.route('/dashboard')
 def dashboard():
-    return render_template('dashboard.html')
+    messages = get_flashed_messages(with_categories=True)
+    return render_template('dashboard.html', messages=messages)
 
 @app.route('/list_tables')
 def list_tables():
