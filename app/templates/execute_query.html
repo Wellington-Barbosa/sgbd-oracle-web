@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Executar Query</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="../static/script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="tabs">
+            <!-- Abas dinâmicas -->
+        </div>
+        <button onclick="addTab()">Nova Query</button>
+
+        <div class="query-section">
+            <textarea id="sqlQuery" placeholder="Digite sua consulta SQL"></textarea>
+            <button onclick="executeQuery()">Executar</button>
+        </div>
+
+        <div class="results-section">
+            {% if query_result %}
+                <table>
+                    <thead>
+                        <!-- Cabeçalho da tabela com colunas dinâmicas -->
+                    </thead>
+                    <tbody>
+                        {% for row in query_result %}
+                            <tr>
+                                {% for col in row %}
+                                    <td>{{ col }}</td>
+                                {% endfor %}
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

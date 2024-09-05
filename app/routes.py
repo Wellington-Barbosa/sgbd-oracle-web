@@ -52,6 +52,24 @@ def execute_query():
     # Lógica para executar uma consulta
     return render_template('execute_query.html')
 
+@app.route('/run_query', methods=['GET', 'POST'])  # Altere o endpoint se necessário
+def execute_query_function():
+    query_result = None
+    if request.method == 'POST':
+        query = request.form.get('query')
+        try:
+            connection = oracledb.connect(user=session['username'], password=session['password'], dsn=session['dsn'])
+            cursor = connection.cursor()
+            cursor.execute(query)
+            query_result = cursor.fetchall()
+        except oracledb.DatabaseError as e:
+            flash(f"Erro ao executar a consulta: {str(e)}", 'danger')
+        finally:
+            cursor.close()
+            connection.close()
+
+    return render_template('execute_query.html', query_result=query_result)
+
 @app.route('/logout')
 def logout():
     # Limpa a sessão do usuário

@@ -16,3 +16,11 @@ function closeAlert() {
     var alertBox = document.querySelector('.alert');
     alertBox.style.display = 'none';
 }
+
+function addTab() {
+    // Adiciona uma nova aba e textarea para a query
+}
+
+function executeQuery() {
+    // Envia a consulta para o backend
+}

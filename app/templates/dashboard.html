@@ -30,7 +30,10 @@
         <div class="card tilted">
             <span class="title">Bem vindo ao SGBD WEB</span>
         </div>
-        <div class="card"><img src="../static/icons/dicas.png" alt="">Querys</div>
+        <div class="card">
+            <a href="{{ url_for('execute_query') }}">
+                <img src="../static/icons/dicas.png" alt="">Querys</div>
+            </a>
         <div class="card"><img src="../static/icons/tabelas.png" alt="">Tables</div>
         <div class="card"><img src="../static/icons/funcao.png" alt="">Functions</div>
         <div class="card"><img src="../static/icons/procedure.png" alt="">Procedures</div>
